@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         nameList.add("Ann");
 
         // Adaptador: forma visual en la que se muestran los datos
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, nameList);
+        // ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, nameList);
 
         // Enlazamos el adaptador con nuestro listView
-        listViewMain.setAdapter(adapter);
+        // listViewMain.setAdapter(adapter);
 
         listViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

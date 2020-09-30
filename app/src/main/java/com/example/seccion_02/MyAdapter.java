@@ -37,20 +37,32 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        // Copiamos la vista
-        View view = convertView;
+        // View Holder Pattern
+        ViewHolder holder;
+        if(convertView == null) {
+            // Inflamos la vista que llega con nuestro layout
+            LayoutInflater layoutInflater = LayoutInflater.from(this.context);
+            convertView = layoutInflater.inflate(R.layout.list_item, null);
 
-        // Inflamos la vista que llega con nuestro layout
-        LayoutInflater layoutInflater = LayoutInflater.from(this.context);
-        view = layoutInflater.inflate(R.layout.list_item, null);
+            holder = new ViewHolder();
+            // Referenciamos el elemento a modificar y lo rellenamos
+            holder.nameTextView = convertView.findViewById(R.id.textView);
+
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
         // Traemos el valor actual dependiente de la posición
         String currentName = nameList.get(position);
 
         // Referenciamos el elemento a modificar y lo rellenamos
-        TextView textView = view.findViewById(R.id.textView);
-        textView.setText(currentName);
+        holder.nameTextView.setText(currentName);
 
-        return view;
+        return convertView;
+    }
+
+    private static class ViewHolder {
+        private TextView nameTextView;
     }
 }
