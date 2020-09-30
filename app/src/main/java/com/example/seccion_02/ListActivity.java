@@ -4,17 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity {
     private ListView listViewMain;
     private List<String> nameList;
 
@@ -41,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         listViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "Clicked: " + nameList.get(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListActivity.this, "Clicked: " + nameList.get(position), Toast.LENGTH_SHORT).show();
             }
         });
 

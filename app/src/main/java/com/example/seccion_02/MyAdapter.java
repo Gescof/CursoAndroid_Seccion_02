@@ -42,11 +42,11 @@ public class MyAdapter extends BaseAdapter {
         if(convertView == null) {
             // Inflamos la vista que llega con nuestro layout
             LayoutInflater layoutInflater = LayoutInflater.from(this.context);
-            convertView = layoutInflater.inflate(R.layout.list_item, null);
+            convertView = layoutInflater.inflate(this.layout, null);
 
             holder = new ViewHolder();
             // Referenciamos el elemento a modificar y lo rellenamos
-            holder.nameTextView = convertView.findViewById(R.id.textView);
+            holder.nameTextView = convertView.findViewById(R.id.textViewList);
 
             convertView.setTag(holder);
         } else {
