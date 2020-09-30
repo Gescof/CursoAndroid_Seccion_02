@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -42,5 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Clicked: " + nameList.get(position), Toast.LENGTH_SHORT).show();
             }
         });
+
+        // Enlazamos con el adaptador personalizado
+        MyAdapter myAdapter = new MyAdapter(this, R.layout.list_item, nameList);
+        listViewMain.setAdapter(myAdapter);
     }
 }
